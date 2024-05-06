@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Law Office</title>
+    <!--  render all elements normal  -->
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <!--  font awsome library  -->
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <!--  main style  -->
+    <link rel="stylesheet" href="CSS/landing.css">
+    <!--  google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Dancing+Script&family=Kaushan+Script&family=Open+Sans:ital,wght@0,300;0,500;0,600;0,800;1,600&family=Work+Sans:wght@200;300;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+    
+    <!-- header -->
+    <header>
+        <h2>logo</h2>
+        <nav>  <!-- if no login -->
+            <i class="fas fa-bars toggle-menu"></i>
+            <ul class="normal-ul">
+                <li class="home-nav"><a href="#home">Home</a></li>
+                <li class="about-nav"><a href="#about">About</a></li>
+                <li class="services-nav"><a href="#services">Services</a></li>
+                <li class="contact-nav"><a href="#contact">Contact</a></li>
+                <li class="chat-nav"><a href="#">Chat</a></li>
+                <li class="calendar-nav"><a href="#">Calendar</a></li>
+                <li class="payment-nav"><a href="#">Payment</a></li>
+                <li class="dashboard-nav"><a href="#">Dashboard</a></li>
+            </ul>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="landing" id="home">
+        <div class="hello">
+            Hello World!<br><br>
+            We provide high standard clean website for your business solutions sit amet consectetuer.
+        </div>
+
+        <div class="wrapper">
+
+            <span class="icon-close">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="remember-forget">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forget Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Dont't have an account? <a href="#" class="register-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-box register">
+                <h2>Registration</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="username" required>
+                        <label for="Username">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="email-register" required>
+                        <label for="email-register">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-mobile"></i></span>
+                        <input type="text" id="mobile" required>
+                        <label for="mobile">mobile</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password-register" required>
+                        <label for="password-register">Password</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <input type="text" id="address" required>
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="role">
+                        <p>select your role:</p>
+                        <input type="radio" id="admin" name="role" value="admin" required>
+                        <label for="admin">Admin</label><br>
+                        <input type="radio" id="clint" name="role" value="clint" required>
+                        <label for="clint">Clint</label><br>
+                        <input type="radio" id="lawyer" name="role" value="lawyer" required>
+                        <label for="lawyer">Lawyer</label>
+                    </div>
+                    <div class="remember-forget">
+                        <label><input type="checkbox" required> agree to the terms & conditions</label>
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                    <div class="login-register">
+                        <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    
+   <!--    about    -->
+    <div class="about" id="about">
+        <div class="container">
+            <div class="main-heading">
+                <h2>About Us</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aliquam at dolo quo quod rerum saepe unde vel.
+                </p>
+            </div>
+            <div class="our-attorney">
+
+                <div class="lawyer-box">
+                    <img src="images/team1.jpg">
+                    <div class="text">
+                        <h2>Rudhi Sasmito</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lawyer-box">
+                    <img src="images/team2.jpg">
+                    <div class="text">
+                        <h2>Rudhi Sasmito</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lawyer-box">
+                    <img src="images/team3.jpg">
+                    <div class="text">
+                        <h2>Sarah Doel</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lawyer-box">
+                    <img src="images/team4.jpg">
+                    <div class="text">
+                        <h2>Rome Doel</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="statis">
+                <div class="container">
+
+                    <div class="box">
+                        <i class="fa fa-check-square fa-lg"></i>
+                        <div class="number">120</div>
+                        <p>Completed Projects</p>
+                    </div>
+
+                    <div class="box">
+                        <i class="fa fa-users fa-lg"></i>
+                        <div class="number">152</div>
+                        <p>Satisfied Clients</p>
+                    </div>
+
+                    <div class="box">
+                        <i class="fa-regular fa-clock"></i>
+                        <div class="number">900</div>
+                        <p>Working Hours</p>
+                    </div>
+
+                    <div class="box">
+                        <i class="fa-solid fa-trophy"></i>
+                        <div class="number">150</div>
+                        <p>Award Won</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    services    -->
+    <div class="services" id="services">
+        <div class="container">
+            <div class="main-heading">
+                <h2>services</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                </p>
+            </div>
+            <div class="services-container">
+        
+                <div class="serv-box">
+                    <img src="images/services1.jpg">
+                    <div class="text">
+                        <h2>Fire Accident</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="serv-box">
+                    <img src="images/services2.jpg">
+                    <div class="text">
+                        <h2>Accident Injuries</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="serv-box">
+                    <img src="images/services3.jpg">
+                    <div class="text">
+                        <h2>Family Law</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="serv-box">
+                    <img src="images/services4.jpg">
+                    <div class="text">
+                        <h2>Financial Law</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="serv-box">
+                    <img src="images/services5.jpg">
+                    <div class="text">
+                        <h2>Drug Offences</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="serv-box">
+                    <img src="images/services6.jpg">
+                    <div class="text">
+                        <h2>Civil Litigation</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur assumenda autem minima nihil, numquam optio tenetur.
+                        </p>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
+    <!--    contact    -->
+    <div class="contact" id="contact">
+        <div class="container">
+            <div class="main-heading">
+                <h2>Contact</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque dignissimos ea facilis nisi pariatur porro sint tenetur vero voluptas.
+                </p>
+            </div>
+            <div class="content">
+
+                <form action="">
+                    <input class="main-input" type="text" name="name" placeholder="Your Name">
+                    <input class="main-input" type="email" name="email" placeholder="Your Email">
+                    <textarea class="main-input" name="message" placeholder="Your Message"></textarea>
+                    <input type="submit" value="submit">
+                </form>
+                <div class="info">
+                    <h4>get in touch</h4>
+                    <span class="phone">+00 123.456.789</span>
+                    <span class="phone">+00 123.456.789</span>
+                    <h4>get in touch</h4>
+                    <span class="phone">+00 123.456.789</span>
+                    <span class="phone">+00 123.456.789</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--    footer    -->
+    <footer>
+    <!--    <div class="container">-->
+            <img src="images/logo.png" alt="logo">
+            <P>We Are Social</P>
+            <div class="social_icons">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <p class="copyright">&copy; 2024 <span>Law Office</span> All Right Reserved</p>
+    <!--    </div>-->
+    </footer>
+    
+
+    <script src="JS/landing.js"></script>
+</body>
+</html>
