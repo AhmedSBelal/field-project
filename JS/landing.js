@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if(validE && validP){
             const wrapper = document.querySelector('.wrapper');
             wrapper.classList.remove('active-popup');
+            document.querySelector('.form-box.login form').reset();
             checkTypeUser(email);
         }
         
@@ -177,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if(validE && validP && validM){
             const wrapper = document.querySelector('.wrapper');
             wrapper.classList.remove('active-popup');
+            document.querySelector('.form-box.register form').reset();
         }
     });
 });
