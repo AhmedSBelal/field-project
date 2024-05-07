@@ -26,20 +26,22 @@
         <nav>  <!-- if no login -->
             <i class="fas fa-bars toggle-menu"></i>
             <ul class="normal-ul">
-                <li class="home-nav"><a href="#home">Home</a></li>
-                <li class="about-nav"><a href="#about">About</a></li>
-                <li class="services-nav"><a href="#services">Services</a></li>
-                <li class="contact-nav"><a href="#contact">Contact</a></li>
-                <li class="chat-nav"><a href="#">Chat</a></li>
-                <li class="calendar-nav"><a href="#">Calendar</a></li>
-                <li class="payment-nav"><a href="#">Payment</a></li>
-                <li class="dashboard-nav"><a href="#">Dashboard</a></li>
+                <li class="all-users no-user"><a href="#home">Home</a></li>
+                <li class="no-user"><a href="#about">About</a></li>
+                <li class="no-user"><a href="#services">Services</a></li>
+                <li class="no-user"><a href="#contact">Contact</a></li>
+                <li class="two-users"><a href="#">Chat</a></li>
+                <li class="all-users"><a href="#">Calendar</a></li>
+                <li class="clint"><a href="#">Payment</a></li>
+                <li class="admin"><a href="#">Dashboard</a></li>
+                <li class="lawyer"><a href="#">Update Case</a></li>
             </ul>
             <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
 
     <div class="landing" id="home">
+
         <div class="hello">
             Hello World!<br><br>
             We provide high standard clean website for your business solutions sit amet consectetuer.
@@ -58,11 +60,19 @@
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                         <input type="email" id="email" required>
                         <label for="email">Email</label>
+                        <span class="error email hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" id="password" required>
                         <label for="password">Password</label>
+                        <span class="error password hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
                     </div>
                     <div class="remember-forget">
                         <label><input type="checkbox">Remember me</label>
@@ -82,7 +92,12 @@
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
                         <input type="text" id="username" required>
                         <label for="Username">Username</label>
+                        <span class="error email hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
                     </div>
+                   
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                         <input type="email" id="email-register" required>
@@ -97,6 +112,10 @@
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" id="password-register" required>
                         <label for="password-register">Password</label>
+                        <span class="error password hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-location-dot"></i></span>

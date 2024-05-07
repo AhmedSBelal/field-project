@@ -29,12 +29,55 @@ function wrapperPopup() {
     });
 }
 
-wrapperPopup();
+function checkTypeUser(currentUser) {
 
-let admins = ['ahmed', 'ali'];
-let clints = ['mohamed'];
-let lawyers = ['abdo'];
-let currentUser = "";
+    let links = document.querySelectorAll('nav ul li');
+
+    links.forEach((ele)=>{
+        ele.classList.add('hidden');
+    });
+
+    if(currentUser == 'ahmadsd777777@gmail.com') {
+            // then admin
+
+            links.forEach((ele)=>{
+                if(ele.classList.contains('admin') || ele.classList.contains('all-users')) ele.classList.remove('hidden');
+            });
+
+    }else if  (currentUser == 'ahmadsd77777@gmail.com'){
+            // then lawyer
+            
+            links.forEach((ele)=>{
+                if(ele.classList.contains('lawyer') || ele.classList.contains('all-users') || ele.classList.contains('two-users')) 
+                    ele.classList.remove('hidden');
+            });
+
+    }else if(currentUser == 'ahmadsd88888@gmail.com') {
+    
+            // then clint
+            links.forEach((ele)=>{
+                if(ele.classList.contains('clint') || ele.classList.contains('all-users') || ele.classList.contains('two-users')) 
+                    ele.classList.remove('hidden');
+            })
+    
+    } else {
+    
+        // then no user
+        links.forEach((ele)=>{
+            if(ele.classList.contains('no-user')) 
+                ele.classList.remove('hidden');
+        });
+    
+    }
+
+}
+
+wrapperPopup();
+checkTypeUser('no-user');
+let admins = ['ahmadsd777777@gmail.com'];
+let clints = ['ahmadsd88888@gmail.com'];
+let lawyers = ['ahmadsd77777@gmail.com'];
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('.form-box.login');
@@ -44,13 +87,40 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        // Process login data here
-        console.log('Login:', email, password);
-        // check if is it register or not
 
+        // check valid 
+        let validE = false;
+        let validP = false;
+        
+        // check email
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const errorEmail = document.querySelector('.error.email');
+        const errorPass = document.querySelector('.error.password');
+        if(!emailRegex.test(email)){
+            errorEmail.classList.remove('hidden');
+        }else if(!errorEmail.classList.contains('hidden')){
+            errorEmail.classList.add('hidden');
+            validE = true;
+        }else {
+            validE = true;
+        }
 
-        // Optionally, reset form fields
-        // loginForm.reset();
+        // check password
+        if(password.length < 8){
+            errorPass.classList.remove('hidden');
+        }else if(!errorPass.classList.contains("hidden")){
+            errorPass.classList.add('hidden');
+            validP = true;
+        }else {
+            validP = true;
+        }
+        // reset form fields
+        if(validE && validP){
+            checkTypeUser(email);
+            document.querySelector('.form-box.login form').reset();
+            loginNow = true;
+        }
+
     });
 
     registerForm.addEventListener('submit', function (event) {
@@ -62,47 +132,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const address = document.getElementById('address').value;
         const role = document.querySelector('.role input[name="role"]:checked').value;
         // Process registration data here
+
+        
+        // let checkNumber = /^011\d{8}$/;
+        // if(checkNumber.text())
+
         console.log('Registration:', username, email, mobile, password, address, role);
         // Optionally, reset form fields
         // registerForm.reset();
     });
 });
-
-const paymentNav = document.querySelector('nav .payment-nav');
-const chatNav = document.querySelector('nav .chat-nav');
-const calendarNav = document.querySelector('nav .calendar-nav');
-const dashboardNav = document.querySelector('nav .dashboard-nav');
-const aboutNav = document.querySelector('nav .about-nav');
-const servicesNav = document.querySelector('nav .services-nav');
-const contactNav = document.querySelector('nav .contact-nav');
-
-// console.log(paymentNav, chatNav, calendarNav, dashboardNav);
-
-if (currentUser == "") {
-
-    // then no user
-    paymentNav.classList.add('hidden');
-    chatNav.classList.add('hidden');
-    calendarNav.classList.add('hidden');
-    dashboardNav.classList.add('hidden');
-
-} else if (currentUser === 'ahmed') {
-
-    // then admin
-    paymentNav.classList.add('hidden');
-    aboutNav.classList.add('hidden');
-    servicesNav.classList.add('hidden');
-    contactNav.classList.add('hidden');
-
-} else if (currentUser == 'mohamed') {
-
-    // then lawyer
-
-} else {
-
-    // then clint
-
-}
 
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight;

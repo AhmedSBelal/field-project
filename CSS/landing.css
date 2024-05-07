@@ -240,7 +240,7 @@ nav .btnLogin-popup:hover {
 
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* login form */
@@ -351,7 +351,7 @@ nav .btnLogin-popup:hover {
     font-size: .9em;
     color: black;
     font-weight: 500;
-    margin: -15px 0 15px;
+    margin: -7px 0 15px;
     display: flex; 
     justify-content: space-between;
 }
@@ -457,6 +457,18 @@ nav .btnLogin-popup:hover {
     border-bottom-left-radius: 20px;
     cursor: pointer;
     z-index: 1;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    color: #d9302d;
+    font-size: 12px;
+}
+
+.error i {
+    margin-right: 6px;
 }
 
 /* landing */
