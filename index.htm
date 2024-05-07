@@ -92,22 +92,28 @@
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
                         <input type="text" id="username" required>
                         <label for="Username">Username</label>
-                        <span class="error email hidden">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <p class="error-text">Please enter a vald email</p>
-                        </span>
                     </div>
                    
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                         <input type="email" id="email-register" required>
                         <label for="email-register">Email</label>
+                        <span class="error email hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
                     </div>
+
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-mobile"></i></span>
                         <input type="text" id="mobile" required>
                         <label for="mobile">mobile</label>
+                        <span class="error mobile hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
                     </div>
+
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" id="password-register" required>
@@ -117,11 +123,13 @@
                             <p class="error-text">Please enter a vald email</p>
                         </span>
                     </div>
+
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
                         <input type="text" id="address" required>
                         <label for="address">Address</label>
                     </div>
+
                     <div class="role">
                         <p>select your role:</p>
                         <input type="radio" id="admin" name="role" value="admin" required>
@@ -131,9 +139,11 @@
                         <input type="radio" id="lawyer" name="role" value="lawyer" required>
                         <label for="lawyer">Lawyer</label>
                     </div>
+
                     <div class="remember-forget">
                         <label><input type="checkbox" required> agree to the terms & conditions</label>
                     </div>
+
                     <button type="submit" class="btn">Register</button>
                     <div class="login-register">
                         <p>Already have an account? <a href="#" class="login-link">Login</a></p>

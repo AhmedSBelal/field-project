@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // check email
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const errorEmail = document.querySelector('.error.email');
-        const errorPass = document.querySelector('.error.password');
+        const errorEmail = document.querySelector('.login .error.email');
+        const errorPass = document.querySelector('.login .error.password');
         if(!emailRegex.test(email)){
             errorEmail.classList.remove('hidden');
         }else if(!errorEmail.classList.contains('hidden')){
@@ -116,10 +116,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // reset form fields
         if(validE && validP){
+            const wrapper = document.querySelector('.wrapper');
+            wrapper.classList.remove('active-popup');
             checkTypeUser(email);
-            document.querySelector('.form-box.login form').reset();
-            loginNow = true;
         }
+        
+
 
     });
 
@@ -133,13 +135,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const role = document.querySelector('.role input[name="role"]:checked').value;
         // Process registration data here
 
-        
-        // let checkNumber = /^011\d{8}$/;
-        // if(checkNumber.text())
+         // check valid 
+         let validE = false;
+         let validP = false;
+         let validM = false;
+         
+         // check email
+         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+         const errorEmail = document.querySelector('.register .error.email');
+         const errorPass = document.querySelector('.register .error.password');
+         const errorMobile = document.querySelector('.register .error.mobile');
+         if(!emailRegex.test(email)){
+             errorEmail.classList.remove('hidden');
+         }else if(!errorEmail.classList.contains('hidden')){
+             errorEmail.classList.add('hidden');
+             validE = true;
+         }else {
+             validE = true;
+         }
+ 
+        //  check password
+         if(password.length < 8){
+             errorPass.classList.remove('hidden');
+         }else if(!errorPass.classList.contains("hidden")){
+             errorPass.classList.add('hidden');
+             validP = true;
+         }else {
+             validP = true;
+         }
+
+        let checkNumber = /^01\d{9}$/;
+        if(!checkNumber.test(mobile)) {
+            errorMobile.classList.remove('hidden');
+        }else if(!errorMobile.classList.contains('hidden')) {
+            errorMobile.classList.add('hidden');
+            validM = true;
+        }else validM = true;
 
         console.log('Registration:', username, email, mobile, password, address, role);
-        // Optionally, reset form fields
-        // registerForm.reset();
+        // reset form fields
+        if(validE && validP && validM){
+            const wrapper = document.querySelector('.wrapper');
+            wrapper.classList.remove('active-popup');
+        }
     });
 });
 
