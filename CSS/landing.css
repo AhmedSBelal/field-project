@@ -123,15 +123,15 @@ header {
     z-index: 1;
 }
 
-@media (max-width: 500px) {
-    header {
-        padding: 10px 20px;
-    }
-}
-
 @media (max-width: 1100px) {
     header {
         padding: 10px 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 10px 20px;
     }
 }
 
@@ -154,12 +154,21 @@ nav {
     justify-content: space-around;
 }
 
-.mnScreen-ul {
+.mnScreen-ul, 
+.mnScreen-ul-profile {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 200px;
-    top: 45px;
+}
+
+.mnScreen-ul {
+    right: 150px;
+    top: 50px;
+}
+
+.mnScreen-ul-profile {
+    right: 70px;
+    top: 50px;
 }
 
 .mnScreen-li {
@@ -201,7 +210,7 @@ nav .toggle-menu {
     }
 }
 
-nav a::after{
+nav ul li a::after{
     content: '';
     position: absolute;
     left: 0;
@@ -219,25 +228,92 @@ nav a:hover::after {
     transform: scale(1);
 }
 
-nav .btnLogin-popup {
-    width: 130px;
-    height: 50px;
-    background-color: transparent;
+
+
+nav .btnLogin-popup, 
+nav .profile {
     border: 2px solid #fff;
     border-radius: 50px;
     outline: none;
     font-size: 1.1em;
     color: #fff;
     font-weight: 500;
-    /* margin-left: 40px; */
     transition: .5s;
 }
+
+nav .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    transition: .5s;
+}
+
+nav .profile {
+    width: 50px;
+    height: 50px;
+    background-image: url("../Images/portfolio1.jpeg");
+    background-size: cover;
+    cursor: pointer;
+}
+
 
 nav .btnLogin-popup:hover {
     background-color: #fff;
     color: black;
 }
 
+nav .sub-menu-wrap {
+    position: absolute;
+    /* top: 70px; */
+    /* right: 60px; */
+    top: 82%;
+    right: 8%;
+    width: 250px;
+    background-color: #fff;
+}
+
+nav .sub-menu {
+    background-color: #bbb;
+    padding: 20px;
+    margin: 10px;
+}
+
+nav .sub-menu .user-info {
+    display: flex;
+    align-items: center;
+}
+
+nav .sub-menu .user-info img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+nav .sub-menu .user-info h3 {
+    font-weight: 500;
+}
+
+.sub-menu hr {
+    background-color: black;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;;
+}
+
+.sub-menu .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-menu .links a {
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
 
 .hidden {
     display: none !important;
