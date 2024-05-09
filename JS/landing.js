@@ -1,4 +1,3 @@
-
 function wrapperPopup() {
     const wrapper = document.querySelector('.wrapper');
     const loginLink = document.querySelector('.login-link');
@@ -31,58 +30,41 @@ function wrapperPopup() {
 
 function checkTypeUser(currentUser) {
 
-    console.log(currentUser);
     let links = document.querySelectorAll('nav ul li');
-
     links.forEach((ele) => {
         ele.classList.add('hidden');
     });
-
     if (currentUser == 'ahmadsd77777@gmail.com') {
-        // then lawyer
-
-        links.forEach((ele) => {
-            if (ele.classList.contains('lawyer') || ele.classList.contains('all-users'))
-                ele.classList.remove('hidden');
-        });
-
         return "lawyer";
-
     } else if (currentUser == 'ahmadsd88888@gmail.com') {
-
-        // then clint
-        links.forEach((ele) => {
-            if (ele.classList.contains('client') || ele.classList.contains('all-users'))
-                ele.classList.remove('hidden');
-        });
-
-        return "client";
-
+         return "client";
     } else {
-
-        // then no user
-        links.forEach((ele) => {
-            if (ele.classList.contains('no-user'))
-                ele.classList.remove('hidden');
-        });
-
         return "noUser";
-
     }
 
 }
 
-
-let currentUser;
+let currentUser = {
+    userName: "",
+    userType: "noUser", 
+};
 function UpdateUser(user) {
-    currentUser = user;
+    currentUser = user
 }
 
-UpdateUser(checkTypeUser('noUser'));
 
+// window.localStorage.clear();
+
+// put current user in local storage 
+if(window.localStorage['currentUser']){ 
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(currentUser);
+}
+
+updateNav(currentUser.userType);
+    
 wrapperPopup();
 
-let admins = ['ahmadsd777777@gmail.com'];
 let clints = ['ahmadsd88888@gmail.com'];
 let lawyers = ['ahmadsd77777@gmail.com'];
 
@@ -90,7 +72,8 @@ let lawyers = ['ahmadsd77777@gmail.com'];
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('.form-box.login');
     const registerForm = document.querySelector('.form-box.register');
-
+    const logout = document.querySelector('.sub-menu .links .logout');
+    // login
     loginForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const email = document.getElementById('email').value;
@@ -127,19 +110,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const wrapper = document.querySelector('.wrapper');
             wrapper.classList.remove('active-popup');
             document.querySelector('.form-box.login form').reset();
-            UpdateUser(checkTypeUser(email));
-            if(currentUser != "noUser"){
-                const btnPopup = document.querySelector('.btnLogin-popup');
-                const profile = document.querySelector('nav .profile');
-                btnPopup.classList.add('hidden');
-                profile.classList.remove('hidden');
-            }
+
+            // sotre data in curretnUser
+            currentUser.userName = email;
+            currentUser.userType = checkTypeUser(email);
+            // use currentUser to stor in local storage
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            updateNav(currentUser.userType);
         }
-
-
 
     });
 
+    // register
     registerForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const username = document.getElementById('username').value;
@@ -187,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             validM = true;
         } else validM = true;
 
-        console.log('Registration:', username, email, mobile, password, address, role);
+        // console.log('Registration:', username, email, mobile, password, address, role);
         // reset form fields
         if (validE && validP && validM) {
             const wrapper = document.querySelector('.wrapper');
@@ -195,7 +177,72 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.form-box.register form').reset();
         }
     });
+
+    // logout
+    logout.addEventListener('click', (e)=>{
+        const subMenu = document.querySelector('nav .sub-menu-wrap');
+        subMenu.classList.add('hidden');
+        currentUser.userName = "";
+        currentUser.userType = 'noUser';
+        window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        updateNav(currentUser.userType);
+    });
+
 });
+///////// update navbar 
+
+function updateNav(userType) {
+
+    const btnPopup = document.querySelector('.btnLogin-popup');
+    const profile = document.querySelector('nav .profile');
+    let links = document.querySelectorAll('nav ul li');
+    const ul = document.querySelector("nav ul");
+
+    links.forEach((ele) => {  // hidden all 
+        ele.classList.add('hidden');
+    });
+
+    if(userType != 'noUser'){   // user
+        btnPopup.classList.add('hidden');
+        profile.classList.remove('hidden');
+        if (userType == 'lawyer') {
+            // then lawyer
+            links.forEach((ele) => {
+                if (ele.classList.contains('lawyer') || ele.classList.contains('all-users'))
+                    ele.classList.remove('hidden');
+            });
+        } else { 
+            // then client
+            links.forEach((ele) => {
+                if (ele.classList.contains('client') || ele.classList.contains('all-users'))
+                    ele.classList.remove('hidden');
+            });
+        }    
+    }else { //  no user
+        btnPopup.classList.remove('hidden');
+        profile.classList.add('hidden');
+        // then no user
+        links.forEach((ele) => {
+            if (ele.classList.contains('no-user'))
+                ele.classList.remove('hidden');
+        });
+    }
+
+    
+    // check user but if small screen
+    if(window.innerWidth <= 800){
+        if(profile.classList.contains('hidden')) {
+            ul.classList.remove('mnScreen-ul-profile');
+            ul.classList.add('mnScreen-ul');
+        } else {
+            ul.classList.add('mnScreen-ul-profile');
+            ul.classList.remove('mnScreen-ul');
+        }
+    }
+    
+
+
+}
 
 ////////////////////////////////////////////////////
 
@@ -204,7 +251,6 @@ const profile = document.querySelector('nav .profile');
 profile.addEventListener('click', function() {
 
     // check if sub-mene list have hidde or no to know remove it or show it 
-    console.log("print");
     const subMenu = document.querySelector('nav .sub-menu-wrap');
     if (subMenu.classList.contains('hidden')) {
         subMenu.classList.remove('hidden');
@@ -219,7 +265,6 @@ profile.addEventListener('click', function() {
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight;
 const toggleMenu = document.querySelector(".toggle-menu");
-const ul = document.querySelector("nav ul");
 const li = Array.from(document.querySelectorAll("nav ul li")); // array
 
 if (screenWidth <= 800) {
@@ -232,12 +277,13 @@ window.addEventListener('resize', function () {
 
 toggleMenu.addEventListener("click", () => {
     // check if ul list have hidde or no to know remove it or show it 
+    const ul = document.querySelector("nav ul");
     if (ul.classList.contains('hidden')) {
         ul.classList.remove('hidden');
     } else {
         ul.classList.add('hidden');
     }
-    if(currentUser != "noUser"){
+    if(currentUser.userType != "noUser"){
         ul.classList.add('mnScreen-ul-profile');
     }else
         ul.classList.add('mnScreen-ul');
@@ -249,6 +295,7 @@ toggleMenu.addEventListener("click", () => {
 function updateScreenSize() {
     screenWidth = window.innerWidth;
     screenHeight = window.innerHeight;
+    const ul = document.querySelector("nav ul");
     if (screenWidth <= 800) {
         ul.classList.add('hidden');
         ul.classList.remove('normal-ul');
