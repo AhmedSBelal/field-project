@@ -1,0 +1,282 @@
+/*   global rules   */
+
+:root {
+    --main-color: #19cBfa;
+    --background: #2f2f2f;
+    --transparent-color: rgb(15 116 143 / 70%);
+    --section-padding: 100px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #bbb;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*   small   */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/*   medium   */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/*   large   */
+
+@media (min-width: 1200px){
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/*   components   */
+
+.main-heading {
+    text-align: center;
+}
+
+.main-heading h2 {
+    font-weight: normal;
+    font-size: 40px;
+    position: relative;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+}
+
+.main-heading h2:before,
+.main-heading h2:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-heading h2:before {
+    height: 2px;
+    background-color: #333;
+    bottom: -30px;
+    width: 120px;
+}
+
+.main-heading h2:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
+    bottom: -38px;
+    background-color: white;
+}
+
+.main-heading p {
+    width: 550px;
+    margin: 0 auto 100px;
+    line-height: 2;
+    color: #777;
+}
+
+@media (max-width: 767px){
+    .main-heading p {
+        width: 100%;
+    }
+}
+
+
+/* header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background-color: #bbb;  /* change color*/
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+@media (max-width: 1100px) {
+    header {
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 10px 20px;
+    }
+}
+
+header h2 {
+    font-size: 2em;
+    color: white;
+    user-select: none;
+}
+
+nav {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.normal-ul {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mnScreen-ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 70px;
+    top: 50px;
+}
+
+.mnScreen-li {
+    margin: 7px 0px;
+}
+
+
+nav li a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav .toggle-menu {
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    nav .toggle-menu {
+        display: none;
+    }
+}
+
+@media (max-width:800px) {
+    nav {
+        justify-content: right;
+    }
+    nav .toggle-menu {
+        margin-right: 10px;
+    }
+}
+
+nav a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform: scale(0);
+    transition: transform .5s;
+}
+
+nav a:hover::after {
+    transform-origin: left;
+    transform: scale(1);
+}
+
+nav .profile {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    /* margin-left: 40px; */
+    transition: .5s;
+}
+
+
+nav .profile:hover {
+    background-color: #fff;
+    color: black;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+
+/* main */
+
+.main {
+    margin: 100px auto 800px;
+}
+
+/*   footer   */
+
+footer {
+    padding-top: calc(var(--section-padding) / 2);
+    padding-bottom: calc(var(--section-padding) / 2);
+    background-color: var(--background);
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+footer img {
+    margin-bottom: 20px;
+}
+
+footer p:not(.copyright) {
+    text-transform: uppercase;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+footer .social_icons i {
+    padding: 10px 15px;
+}
+
+footer .copyright {
+    margin-top: 60px;
+}
+
+footer .copyright span {
+    font-weight: bold;
+    color: var(--main-color);
+}
