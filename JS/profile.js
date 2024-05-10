@@ -1,5 +1,21 @@
 
 
+
+let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+if(currentUser.userType == 'client') {
+
+    const lawyer = document.querySelector('.lawyer');
+    lawyer.classList.add('hidden');
+
+} else {
+
+    const clients = document.querySelectorAll('nav .client');
+    clients.forEach((client)=>{
+        client.classList.add('hidden');
+    });
+
+}
+
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight;
 const toggleMenu = document.querySelector(".toggle-menu");
@@ -44,3 +60,32 @@ function updateScreenSize() {
     }
 
 }
+
+// click on the profile 
+
+const profile = document.querySelector('nav .profile');
+profile.addEventListener('click', function() {
+
+    // check if sub-mene list have hidde or no to know remove it or show it 
+    const subMenu = document.querySelector('nav .sub-menu-wrap');
+    if (subMenu.classList.contains('hidden')) {
+        subMenu.classList.remove('hidden');
+    } else {
+        subMenu.classList.add('hidden');
+    }
+
+});
+
+
+// logout >> got to home and logout 
+
+const logout = document.querySelector('.sub-menu .links .logout');
+
+logout.addEventListener('click', (e)=>{
+    const subMenu = document.querySelector('nav .sub-menu-wrap');
+    subMenu.classList.add('hidden');
+    currentUser.userName = "";
+    currentUser.userType = 'noUser';
+    window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    window.location.href = "../index.htm";
+})

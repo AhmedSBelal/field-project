@@ -31,16 +31,90 @@
                 <li class="all-users"><a href="#">Calendar</a></li>
                 <li class="client"><a href="#">Payment</a></li>
                 <li class="client"><a href="#">Follow Case</a></li>
+                <li class="lawyer"><a href="#">Update Case</a></li>
             </ul>
             <button class="profile"></button>
+            <div class="sub-menu-wrap hidden">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="../Images/portfolio1.jpeg" alt="photo">
+                        <h3>user_name</h3>
+                    </div>
+                    <hr>
+                    <div class="links">
+                        <!-- <a href="profile.htm"><i class="fa-solid fa-user"></i> Profile</a> -->
+                        <a><i class="fa-solid fa-circle-question"></i> Help&support</a>
+                        <a class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>  
+            </div>
         </nav>
     </header>
 
     <!-- main -->
 
     <div class="main">
-        fgkjhghjk
+        <div class="hello">
+            <h2>Hello <span>User_Name</span></h2><br>
+            This is your profile page.
+        </div>
+        <div class="my-account">
+            <div class="user-info">
+                <form action="">
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="username" required>
+                        <label for="Username">Username</label>
+                    </div>
+                   
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="email-register" required>
+                        <label for="email-register">Email</label>
+                        <span class="error email hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password-register" required>
+                        <label for="password-register">Password</label>
+                        <span class="error password hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
+                    </div>
+
+                </form>
+            </div>
+            <div class="contact-info">
+
+                <form action="">
+
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-mobile"></i></span>
+                        <input type="text" id="mobile" required>
+                        <label for="mobile">mobile</label>
+                        <span class="error mobile hidden">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="error-text">Please enter a vald email</p>
+                        </span>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <input type="text" id="address" required>
+                        <label for="address">Address</label>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
     </div>
+    
 
     <!--    footer    -->
     <footer>

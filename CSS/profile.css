@@ -194,7 +194,7 @@ nav .toggle-menu {
     }
 }
 
-nav a::after{
+nav li a::after{
     content: '';
     position: absolute;
     left: 0;
@@ -232,6 +232,55 @@ nav .profile:hover {
     color: black;
 }
 
+nav .sub-menu-wrap {
+    position: absolute;
+    top: 82%;
+    right: 8%;
+    width: 250px;
+    background-color: #fff;
+}
+
+nav .sub-menu {
+    background-color: #bbb;
+    padding: 20px;
+    margin: 10px;
+}
+
+nav .sub-menu .user-info {
+    display: flex;
+    align-items: center;
+}
+
+nav .sub-menu .user-info img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+nav .sub-menu .user-info h3 {
+    font-weight: 500;
+}
+
+.sub-menu hr {
+    background-color: black;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;;
+}
+
+.sub-menu .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-menu .links a {
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
 
 .hidden {
     display: none !important;
@@ -242,8 +291,23 @@ nav .profile:hover {
 /* main */
 
 .main {
-    margin: 100px auto 800px;
+    width: 100%;
+    margin: 100px auto 500px;
 }
+
+.main .hello {
+    width: 500px;
+    margin: 200px auto;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ccc;
+    line-height: 1.1em;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
 
 /*   footer   */
 
