@@ -1,6 +1,21 @@
 
 
 
+
+window.onload = function() {
+    fetch('../header.htm')
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector('header').innerHTML = html;
+        });
+    
+    // fetch('footer.html')
+    //     .then(response => response.text())
+    //     .then(html => {
+    //         document.getElementById('footer').innerHTML = html;
+    //     });
+};
+
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 if(currentUser.userType == 'client') {
 

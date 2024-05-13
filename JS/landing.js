@@ -58,7 +58,7 @@ function UpdateUser(user) {
 // put current user in local storage 
 if(window.localStorage['currentUser']){ 
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(currentUser);
+    // console.log(currentUser);
 }
 
 updateNav(currentUser.userType);
