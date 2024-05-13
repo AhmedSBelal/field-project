@@ -102,5 +102,5 @@ logout.addEventListener('click', (e)=>{
     currentUser.userName = "";
     currentUser.userType = 'noUser';
     window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    window.location.href = "../index.htm";
+    window.location.href = "index.htm";
 })

@@ -26,6 +26,21 @@ profile.addEventListener('click', function() {
 
 });
 
+// logout 
+
+const logout = document.querySelector('.sub-menu-wrap .links .logout');
+
+logout.addEventListener('click', ()=>{
+
+    const subMenu = document.querySelector('nav .sub-menu-wrap');
+    subMenu.classList.add('hidden');
+    currentUser.userName = "";
+    currentUser.userType = "noUser";
+    window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    window.location.href = "index.htm";
+
+});
+
 ///       update screen size
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight;
